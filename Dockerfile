@@ -11,7 +11,6 @@ RUN mkdir logs && \
     chown -R 65532 logs && \
     chgrp -R 0 ftp/ frontend/dist/ logs/ data/ i18n/ && \
     chmod -R g=u ftp/ frontend/dist/ logs/ data/ i18n/
-RUN npm start
 
 FROM gcr.io/distroless/nodejs:18
 ARG BUILD_DATE
