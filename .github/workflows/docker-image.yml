@@ -15,10 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - name: Start npm
-      run: npm start
-    - name: Run App
-      run: node app.js
+      run: docker pull bkimminich/juice-shop
+    - name: Run with docker Container
+      run: docker run -p 3000:3000 bkimminich/juice-shop
     - name: Call to localhost
       run: curl http://localhost:3000
