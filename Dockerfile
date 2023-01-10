@@ -1,17 +1,3 @@
-FROM node:18 as installer
-COPY . /juice-shop
-WORKDIR /juice-shop
-RUN npm i -g typescript ts-node
-RUN npm install --omit=dev --unsafe-perm
-RUN npm dedupe
-RUN rm -rf frontend/node_modules
-RUN rm -rf frontend/.angular
-RUN rm -rf frontend/src/assets
-RUN mkdir logs && \
-    chown -R 65532 logs && \
-    chgrp -R 0 ftp/ frontend/dist/ logs/ data/ i18n/ && \
-    chmod -R g=u ftp/ frontend/dist/ logs/ data/ i18n/
-
 FROM gcr.io/distroless/nodejs:18
 ARG BUILD_DATE
 ARG VCS_REF
