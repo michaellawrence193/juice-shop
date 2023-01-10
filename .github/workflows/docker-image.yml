@@ -14,9 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker pull bkimminich/juice-shop
     - name: Run with docker Container
-      run: docker run -p 3000:3000 bkimminich/juice-shop
+      run: docker container run -d -p 3000:3000 juice-shop
     - name: Call to localhost
       run: curl http://localhost:3000
