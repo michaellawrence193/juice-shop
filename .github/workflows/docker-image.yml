@@ -18,5 +18,7 @@ jobs:
       run: |  
         docker build . --tag juice-shop
         docker container run -d -p 3000:3000 juice-shop
+    - name: Wait 10 secs
+      run: sleep 10
     - name: Call to localhost
       run: curl http://localhost:3000
