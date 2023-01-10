@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build Docker Image
-      run: docker build --tag Dockerfile
+      run: docker build . --file Dockerfile --tag docker-image:$(date +%s)
     - name: Run with docker Container
       run: docker container run -d -p 3000:3000 juice-shop
     - name: Call to localhost
