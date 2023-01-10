@@ -14,7 +14,6 @@ LABEL maintainer="Bjoern Kimminich <bjoern.kimminich@owasp.org>" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 WORKDIR /juice-shop
-COPY --from=installer --chown=nonroot /juice-shop .
 USER 65532
 EXPOSE 3000
 CMD ["/juice-shop/build/app.js"]
